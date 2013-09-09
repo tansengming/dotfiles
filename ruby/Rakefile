@@ -1,0 +1,108 @@
+include FileUtils::Verbose
+require 'pathname'
+require 'cocaine'
+require 'logger'
+
+task :weekly => [:'weekly:movies', :'weekly:brew', :'weekly:pass', :'weekly:blake']
+
+namespace :weekly do
+  task :movies do
+    hd_path = Pathname.new('/Volumes/Elements/')
+    next unless hd_path.exist?
+    list = `ls /Volumes/Elements/Movies/*`
+    list += `ls /Volumes/Elements/X\\ Done/Movies/*`
+    File.open(ENV['HOME'] + '/Dropbox/movies.lst', 'w') {|f| f.write list }
+  end
+
+  task :blake do
+    cd (Pathname.new(Dir.home) + 'projects/blake') do
+      sh 'rake update'
+    end
+  end
+
+  task :brew do
+    sh 'brew update'
+    sh 'brew upgrade'
+    sh 'brew cleanup'
+  end
+
+  task :pass do
+    cd Pathname(Dir.home) + '.password-store' do
+      sh 'git push dropbox master'
+    end
+  end
+end
+
+task :js do
+  Dir['*.js'].each do |js|
+    puts "#{js}..."
+    puts File.read(js).gsub(/(\n|\t)/,'')
+    puts
+  end
+end
+
+desc 'Picks a random picture from the iPhoto Library'
+task :random_picture do
+  dir = '/Users/tansengming/Pictures/iPhoto Public Library/Originals'
+  file = Dir.glob(dir + '/**/*.jp*').shuffle.first
+  sh "open #{file.gsub(' ', '\ ')}"
+end
+
+task :download => [:'download:link', :'download:all', :'download:fix_filenames']
+
+Cocaine::CommandLine.logger = Logger.new(STDOUT)
+
+namespace :download do
+  DownloadPath = Pathname.new('Downloads')
+  ListFile = DownloadPath + 'list'
+
+  task :link do
+    list = Pathname.new(File.expand_path('~/Downloads/list'))
+    blake_list  = Pathname.new(File.expand_path('~/Dropbox/Blake Documents/list'))
+    next if (list.exist? or !blake_list.exist?)
+    list.make_symlink blake_list
+  end
+
+  task :all do
+    ListFiles = Pathname.glob('Downloads/**/list')
+    next if ListFiles.empty?
+
+    ListFiles.each do |listfile|
+      list = listfile.read.split.compact.reject(&:empty?)
+
+      while list.any?
+        url = list.shift
+        cd listfile.dirname do
+          if url[/(vimeo|youtube)\.com/]
+            sh "youtube-dl -lic --format 38/37/22/35/34/18/6/5/17/13 '#{url}'"
+          elsif url[/(put)\.io/]
+            Cocaine::CommandLine.new("wget", "--http-user=sengming --http-password='RWIGQMKEAZ' '#{url}'").run
+          else
+            Cocaine::CommandLine.new("wget", "-c -U 'QuickTime/7.6.2' '#{url}'").run
+          end
+        end
+        File.open(listfile, 'w') {|f| f.write list.join("\n")}
+      end
+      listfile.delete
+    end
+    sh 'open ~/Downloads'
+  end
+
+  task :fix_filenames do
+    cd DownloadPath do
+      Pathname.glob('makeplaylist.*').reject{|p| p.to_s[/mp4$/]}.each do |f|
+        f.rename(f.to_s + '.mp4')
+      end
+    end
+  end
+end
+
+namespace :ruby do
+  task :update do
+    # $ cd ~/.rbenv
+    # $ git pull
+    # remove /opt/local/bin from path
+    # rbenv install 1.9.3-p12 # latest ruby ver
+    # rbenv rehash
+  end
+end
