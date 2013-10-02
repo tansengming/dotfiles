@@ -1,1 +1,0 @@
-eval "$($HOME/Blake/blake-cloud/bin/bc init -)"
