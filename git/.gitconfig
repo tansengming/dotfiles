@@ -1,6 +1,6 @@
 [user]
-	name = SengMing Tan
-	email = tansengming@gmail.com
+  name = SengMing Tan
+  email = tansengming@gmail.com
 [alias]
   b = branch
   c = commit .
@@ -13,17 +13,13 @@
   p = !git push origin HEAD:$(git current-branch)
   follow = !git branch -u origin/$(git current-branch)
   gup = !git fetch && git merge origin/$(git current-branch)
-
 [color]
   ui = auto
-
 [diff]
   color = auto
   rename = copy 
-
 [pager]
   color = true 
-
 [status]
   color = auto
 [github]
@@ -31,6 +27,5 @@
 [core]
   quotepath = false
   editor = vim
-
 [push]
   default = upstream
