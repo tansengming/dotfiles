@@ -1,0 +1,36 @@
+[user]
+	name = SengMing Tan
+	email = tansengming@gmail.com
+[alias]
+  b = branch
+  c = commit .
+  co = checkout
+  stat = status
+  s = status
+  h = log --pretty=format:'%Cblue%h %Cgreen %ar%Creset %s'
+  l = log --decorate --oneline
+  current-branch = rev-parse --symbolic-full-name --abbrev-ref HEAD
+  p = !git push origin HEAD:$(git current-branch)
+  follow = !git branch -u origin/$(git current-branch)
+  gup = !git fetch && git merge origin/$(git current-branch)
+
+[color]
+  ui = auto
+
+[diff]
+  color = auto
+  rename = copy 
+
+[pager]
+  color = true 
+
+[status]
+  color = auto
+[github]
+  user = tansengming
+[core]
+  quotepath = false
+  editor = vim
+
+[push]
+  default = upstream
