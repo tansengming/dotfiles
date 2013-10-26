@@ -34,7 +34,7 @@ plugins=(git ruby rails osx history-substring-search zsh-syntax-highlighting gnu
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-unsetopt correct
+unsetopt correct_all
 autoload -U select-word-style
 select-word-style bash
 [[ -f `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh # autojump plugin wasn't working for me
