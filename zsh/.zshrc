@@ -41,7 +41,7 @@ select-word-style bash
 alias mv='gmv -vi' # must be after plugins
 
 export EDITOR=~/bin/subl
-export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:$HOME/bin:/usr/X11R6/bin
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin::/opt/X11/bin:$HOME/bin:/usr/X11R6/bin
 export HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS='' # makes up/down search case sensitive
 
 # because http://stackoverflow.com/q/9044551/
