@@ -1,9 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'taps'
-gem 'heroku'
 gem 'rake'
 gem 'cocaine'
 gem 'logger'
-gem 'sqlite3'
-gem 'pg'
