@@ -12,7 +12,7 @@
   current-branch = rev-parse --symbolic-full-name --abbrev-ref HEAD
   p = !git push origin HEAD:$(git current-branch)
   follow = !git branch -u origin/$(git current-branch)
-  gup = !git fetch && git merge origin/$(git current-branch)
+  gup = !git fetch --prune origin && git rebase -p origin/$(git current-branch)
 [color]
   ui = auto
 [diff]
