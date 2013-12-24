@@ -1,10 +1,10 @@
 . ~/antigen.zsh
 
 antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-history-substring-search
-antigen bundle git
 antigen bundle rupa/z
 antigen use oh-my-zsh
+antigen bundle history-substring-search
+antigen bundle git
 antigen theme fishy
 
 alias x='exit'
