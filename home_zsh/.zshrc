@@ -1,9 +1,11 @@
-ZSH=$HOME/.oh-my-zsh
+. ~/antigen.zsh
 
-ZSH_THEME="gallois"
-
-setopt HIST_FIND_NO_DUPS
-setopt histignorealldups
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-history-substring-search
+antigen bundle git
+antigen bundle rupa/z
+antigen use oh-my-zsh
+antigen theme fishy
 
 alias x='exit'
 alias desk='cd ~/Desktop'
@@ -22,22 +24,15 @@ alias ag="nocorrect noglob ag --smart-case --context"
 alias lg='ls | grep'
 alias ze='zeus'
 alias f='mdfind -onlyin . -name'
-
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-plugins=(git ruby rails osx history-substring-search zsh-syntax-highlighting gnu-utils autojump git-flow)
-
-source $ZSH/oh-my-zsh.sh
+alias mv='gmv -vi'
+alias j='z'
 
 # Customize to your needs...
+setopt HIST_FIND_NO_DUPS
+setopt histignorealldups
 unsetopt correct_all
 autoload -U select-word-style
 select-word-style bash
-alias mv='gmv -vi' # must be after plugins
 
 export EDITOR=~/bin/subl
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:$HOME/bin:/usr/X11R6/bin:/usr/local/share/npm/bin
