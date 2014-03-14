@@ -5,7 +5,7 @@ antigen bundle rupa/z
 antigen use oh-my-zsh
 antigen bundle history-substring-search
 antigen bundle git
-antigen theme fishy
+antigen theme gallois
 
 alias x='exit'
 alias desk='cd ~/Desktop'
@@ -24,6 +24,11 @@ alias ze='zeus'
 alias f='mdfind -onlyin . -name'
 alias mv='gmv -vi'
 alias j='z'
+alias sp='spring'
+
+# because http://stackoverflow.com/q/9044551/
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US.UTF-8"
 
 # Customize to your needs...
 setopt HIST_FIND_NO_DUPS
