@@ -10,7 +10,7 @@ namespace :weekly do
   require 'open-uri'
   require 'nokogiri'
   task :trailers do
-    RSS = 'http://gdata.youtube.com/feeds/base/users/movieclipsTRAILERS/uploads?alt=rss&v=2&orderby=published&client=ytapi-youtube-profile'
+    RSS = 'http://gdata.youtube.com/feeds/base/users/FilmsActuTrailers/uploads?alt=rss&v=2&orderby=published&client=ytapi-youtube-profile'
     doc = Nokogiri::XML(open(RSS))
     links = doc.css('rss item link').map(&:inner_html)
 
@@ -32,15 +32,19 @@ namespace :weekly do
   end
 
   task :blake do
-    cd (Pathname.new(Dir.home) + 'projects/blake') do
-      sh 'rake update'
+    Bundler.with_clean_env do
+      cd (Pathname.new(Dir.home) + 'projects/blake') do
+        sh 'rake update'
+      end
     end
   end
 
   task :brew do
-    sh 'brew update'
-    sh 'brew upgrade'
-    sh 'brew cleanup'
+    Bundler.with_clean_env do
+      sh 'brew update'
+      sh 'brew upgrade'
+      sh 'brew cleanup'
+    end
   end
 
   task :pass do
