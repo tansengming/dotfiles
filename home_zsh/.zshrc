@@ -27,7 +27,7 @@ alias sp='spring'
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 
-plugins=(git ruby rails osx history-substring-search zsh-syntax-highlighting gnu-utils autojump git-flow)
+plugins=(git history-substring-search zsh-syntax-highlighting gnu-utils)
 
 source $ZSH/oh-my-zsh.sh
 
