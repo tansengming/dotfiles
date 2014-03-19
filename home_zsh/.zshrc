@@ -1,11 +1,9 @@
-. ~/antigen.zsh
+ZSH=$HOME/.oh-my-zsh
 
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle rupa/z
-antigen use oh-my-zsh
-antigen bundle history-substring-search
-antigen bundle git
-antigen theme gallois
+ZSH_THEME="gallois"
+
+setopt HIST_FIND_NO_DUPS
+setopt histignorealldups
 
 alias x='exit'
 alias desk='cd ~/Desktop'
@@ -22,7 +20,6 @@ alias ag="noglob ag --smart-case --context"
 alias lg='ls | grep'
 alias ze='zeus'
 alias f='mdfind -onlyin . -name'
-alias mv='gmv -vi'
 alias j='z'
 alias sp='spring'
 
@@ -30,12 +27,15 @@ alias sp='spring'
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 
+plugins=(git ruby rails osx history-substring-search zsh-syntax-highlighting gnu-utils autojump git-flow)
+
+source $ZSH/oh-my-zsh.sh
+
 # Customize to your needs...
-setopt HIST_FIND_NO_DUPS
-setopt histignorealldups
 unsetopt correct_all
 autoload -U select-word-style
 select-word-style bash
+alias mv='gmv -vi' # must be after plugins
 
 export EDITOR=~/bin/subl
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:$HOME/bin:/usr/X11R6/bin:/usr/local/share/npm/bin
