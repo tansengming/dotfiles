@@ -34,7 +34,7 @@ namespace :weekly do
   task :blake do
     Bundler.with_clean_env do
       cd (Pathname.new(Dir.home) + 'projects/blake') do
-        sh 'rake update'
+        sh 'bundle exec rake update'
       end
     end
   end
