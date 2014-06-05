@@ -29,7 +29,7 @@ alias f='mdfind -onlyin . -name'
 # Uncomment following line if you want to disable autosetting terminal title.
 DISABLE_AUTO_TITLE="true"
 
-plugins=(git ruby rails osx history-substring-search zsh-syntax-highlighting gnu-utils git-flow)
+plugins=(git history-substring-search zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
