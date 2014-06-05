@@ -22,6 +22,7 @@ alias ag="nocorrect noglob ag --smart-case --context"
 alias lg='ls | grep'
 alias ze='zeus'
 alias f='mdfind -onlyin . -name'
+alias sp='spring'
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
