@@ -56,4 +56,4 @@ eval "$($HOME/Blake/bx/bin/bx init -)"
 # chruby
 source /usr/local/share/chruby/chruby.sh
 RUBIES=(~/.rbenv/versions/*)
-chruby 2.0.0-p195
+chruby 2.1.1
