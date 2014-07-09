@@ -1,6 +1,6 @@
 ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="gallois"
+ZSH_THEME="gallois-tsm"
 
 setopt HIST_FIND_NO_DUPS
 setopt histignorealldups
@@ -20,14 +20,14 @@ alias ag="noglob ag --smart-case --context"
 alias lg='ls | grep'
 alias ze='zeus'
 alias f='mdfind -onlyin . -name'
-alias j='z'
+alias j='autojump'
 alias sp='spring'
 
 # because http://stackoverflow.com/q/9044551/
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 
-plugins=(git history-substring-search zsh-syntax-highlighting gnu-utils)
+plugins=(git zsh-syntax-highlighting history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -36,6 +36,7 @@ unsetopt correct_all
 autoload -U select-word-style
 select-word-style bash
 alias mv='gmv -vi' # must be after plugins
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
 export EDITOR=~/bin/subl
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:$HOME/bin:/usr/X11R6/bin:/usr/local/share/npm/bin
