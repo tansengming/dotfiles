@@ -20,7 +20,6 @@ alias ag="noglob ag --smart-case --context"
 alias lg='ls | grep'
 alias ze='zeus'
 alias f='mdfind -onlyin . -name'
-alias j='autojump'
 alias sp='spring'
 
 # because http://stackoverflow.com/q/9044551/
