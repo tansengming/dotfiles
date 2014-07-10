@@ -1,6 +1,6 @@
 ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="gallois"
+ZSH_THEME="gallois-tsm"
 
 setopt HIST_FIND_NO_DUPS
 setopt histignorealldups
@@ -44,6 +44,7 @@ alias mv='gmv -vi' # must be after plugins
 export EDITOR=~/bin/subl
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin::/opt/X11/bin:$HOME/bin:/usr/X11R6/bin
 export HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS='' # makes up/down search case sensitive
+export GOPATH=$HOME/Projects/go
 
 # because http://stackoverflow.com/q/9044551/
 export LC_ALL="en_US.UTF-8"
@@ -57,4 +58,4 @@ eval "$($HOME/Blake/bx/bin/bx init -)"
 # chruby
 source /usr/local/share/chruby/chruby.sh
 RUBIES=(~/.rbenv/versions/*)
-chruby 2.1.1
+chruby 2.1.2
