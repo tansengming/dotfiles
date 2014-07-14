@@ -41,5 +41,6 @@ export EDITOR=~/bin/subl
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:$HOME/bin:/usr/X11R6/bin:/usr/local/share/npm/bin
 export PATH=$HOME/.rbenv/shims:$PATH
 export HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS='' # makes up/down search case sensitive
+export GOPATH=$HOME/Projects/go
 
 function dev() { cd `ruby -e 'puts File.realpath File.expand_path %q{~/dev}'`}
