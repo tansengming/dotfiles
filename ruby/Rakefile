@@ -4,7 +4,7 @@ Bundler.require(:default)
 
 include FileUtils::Verbose
 
-task :weekly => [:'weekly:movies', :'weekly:brew', :'weekly:pass', :'weekly:blake', :'weekly:trailers']
+task :weekly => [:'weekly:movies', :'weekly:brew', :'weekly:blake', :'weekly:trailers']
 
 namespace :weekly do
   require 'open-uri'
@@ -44,12 +44,6 @@ namespace :weekly do
       sh 'brew update'
       sh 'brew upgrade'
       sh 'brew cleanup'
-    end
-  end
-
-  task :pass do
-    cd Pathname(Dir.home) + '.password-store' do
-      sh 'git push dropbox master'
     end
   end
 end
