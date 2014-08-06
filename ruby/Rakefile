@@ -4,7 +4,7 @@ Bundler.require(:default)
 
 include FileUtils::Verbose
 
-task :weekly => [:'weekly:movies', :'weekly:brew', :'weekly:blake', :'weekly:trailers']
+task :weekly => [:'weekly:brew', :'weekly:blake', :'weekly:trailers']
 
 namespace :weekly do
   require 'open-uri'
@@ -21,14 +21,6 @@ namespace :weekly do
     cd (TRAILER_PATH) do
       sh "youtube-dl -lic --format 38/37/22/35/34/18/6/5/17/13 #{links_params}"
     end
-  end
-
-  task :movies do
-    hd_path = Pathname.new('/Volumes/Elements/')
-    next unless hd_path.exist?
-    list = `ls /Volumes/Elements/Movies/*`
-    list += `ls /Volumes/Elements/X\\ Done/Movies/*`
-    File.open(ENV['HOME'] + '/Dropbox/movies.lst', 'w') {|f| f.write list }
   end
 
   task :blake do
