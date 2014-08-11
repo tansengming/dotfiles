@@ -40,8 +40,12 @@ export LANG="en_US.UTF-8"
 
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
+# PATH
+export PATH=$HOME/.rbenv/shims                                          # rbenv on top
+export PATH=$PATH:/usr/local/bin:/usr/local/sbin                        # homebrew
+export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:$HOME/bin  # system
+export PATH=$PATH:/usr/X11R6/bin:/usr/local/share/npm/bin:$GOPATH/bin   # apps
+
 export EDITOR=~/bin/subl
 export GOPATH=$HOME/Projects/go
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:$HOME/bin:/usr/X11R6/bin:/usr/local/share/npm/bin
-export PATH=$HOME/.rbenv/shims:$GOPATH/bin:$PATH
 export HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS='' # makes up/down search case sensitive
