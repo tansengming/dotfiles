@@ -1,10 +1,3 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -30,10 +23,12 @@ alias grep='grep -i'
 alias be='bundle exec'
 alias sp='spring'
 alias ze='zeus'
+# Dev
+alias mkdev='grm -f ~/dev && ln -vs $PWD ~/dev'
+alias dev='cd `realpath ~/dev`'
 # etc
 alias x='exit'
 alias desk='cd ~/Desktop'
-alias mkdev='grm -f ~/dev && ln -vs $PWD ~/dev'
 alias new='gls -lht | head'
 alias ag="noglob ag --smart-case --context"
 alias lg='ls | grep'
@@ -50,5 +45,3 @@ export GOPATH=$HOME/Projects/go
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:$HOME/bin:/usr/X11R6/bin:/usr/local/share/npm/bin
 export PATH=$HOME/.rbenv/shims:$GOPATH/bin:$PATH
 export HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS='' # makes up/down search case sensitive
-
-function dev() { cd `ruby -e 'puts File.realpath File.expand_path %q{~/dev}'`}
