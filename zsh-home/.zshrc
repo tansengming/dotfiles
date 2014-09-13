@@ -33,6 +33,10 @@ alias new='gls -lht | head'
 alias ag="noglob ag --smart-case --context"
 alias lg='ls | grep'
 alias f='mdfind -onlyin . -name'
+alias ql='qlmanage -p'
+# Suffixes
+alias -s log='most'
+alias -s png='qlmanage -p'
 
 # because http://stackoverflow.com/q/9044551/
 export LC_ALL="en_US.UTF-8"
