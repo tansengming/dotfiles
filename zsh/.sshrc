@@ -1,0 +1,21 @@
+alias x='exit'
+alias rm='grm -v'
+alias rmdir='grmdir -v'
+alias cp='cp -vi'
+alias ln='gln -v'
+alias mkdir='gmkdir -v'
+alias be='bundle exec'
+alias grep='grep -i'
+alias new='ls -lht | head'
+alias git='nocorrect /usr/local/bin/git'
+alias ag="nocorrect noglob ag --smart-case --context"
+alias lg='ls | grep'
+alias mv='gmv -vi'
+
+# because http://stackoverflow.com/q/9044551/
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US.UTF-8"
+
+# http://superuser.com/questions/212446/binding-backward-kill-word-to-ctrlw
+stty werase undef
+bind '"\C-w": backward-kill-word'
