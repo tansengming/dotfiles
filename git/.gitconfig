@@ -12,7 +12,6 @@
   current-branch = rev-parse --symbolic-full-name --abbrev-ref HEAD
   p = !git push origin HEAD:$(git current-branch)
   follow = !git branch -u origin/$(git current-branch)
-  gup = !git fetch --prune origin && git rebase -p origin/$(git current-branch)
   del = !export GIT_LAST_BRANCH=$(git current-branch) && git checkout develop && git up && git branch -d $GIT_LAST_BRANCH
 [color]
   ui = auto
