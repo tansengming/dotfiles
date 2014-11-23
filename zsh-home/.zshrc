@@ -31,6 +31,7 @@ alias x='exit'
 alias desk='cd ~/Desktop'
 alias new='gls -lht | head'
 alias ag="noglob ag --smart-case --context"
+alias ag0="noglob ag -C0 --smart-case"
 alias lg='ls | grep'
 alias f='mdfind -onlyin . -name'
 alias ql='qlmanage -p'
