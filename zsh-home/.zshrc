@@ -15,7 +15,7 @@ select-word-style bash
 alias mv='gmv -vi' # must be after plugins
 alias rm='grm -v'
 alias rmdir='grmdir -v'
-alias cp='gcp -vi'
+alias cp='/usr/local/bin/gcp -vi'
 alias ln='gln -v'
 alias mkdir='gmkdir -v'
 alias grep='grep -i'
