@@ -47,6 +47,7 @@ export LANG="en_US.UTF-8"
 
 # PATH
 export PATH=$HOME/.rbenv/shims                                          # rbenv on top
+export PATH=$PATH:$HOME/.nodebrew/current/bin                           # nodebrew
 export PATH=$PATH:/usr/local/bin:/usr/local/sbin                        # homebrew
 export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:$HOME/bin  # system
 export PATH=$PATH:/usr/X11R6/bin:/usr/local/share/npm/bin:$GOPATH/bin   # apps
