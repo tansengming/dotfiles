@@ -25,7 +25,7 @@ alias sp='spring'
 alias ze='zeus'
 # Dev
 alias mkdev='grm -f ~/dev && ln -vs $PWD ~/dev'
-alias dev='cd `realpath ~/dev`'
+alias dev='cd ~/dev(:A)'
 # etc
 alias x='exit'
 alias desk='cd ~/Desktop'
