@@ -4,7 +4,7 @@ Bundler.require(:default)
 
 include FileUtils::Verbose
 
-task :weekly => [:'weekly:brew', :'weekly:trailers']
+task :weekly => [:'weekly:brew']
 
 namespace :weekly do
   require 'open-uri'
