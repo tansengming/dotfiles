@@ -1,0 +1,4 @@
+new_session -n tunnels 'sudo tunnels'
+new_window -n foreman -c ~/dev 'foreman start -f Procfile.dev'
+new_window -n zeus -c ~/dev 'zeus start'
+new_window -n redis-server /usr/local/etc/redis.conf
