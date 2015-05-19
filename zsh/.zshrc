@@ -45,6 +45,7 @@ select-word-style bash
 
 function dev() { cd `ruby -e 'puts File.realpath File.expand_path %q{~/dev}'`}
 function gitdel() { nocorrect git branch -d $1 && git push origin :$1 }
+function locate() { mdfind "kMDItemDisplayName == '$@'wc"; }
 
 eval "$($HOME/Blake/bx/bin/bx init -)"
 
