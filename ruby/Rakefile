@@ -6,6 +6,10 @@ include FileUtils::Verbose
 
 task :weekly => [:'weekly:brew']
 
+task :adobe_launchd do
+  system 'ls -l /Library/LaunchAgents ~/Library/LaunchAgents /Library/LaunchDaemons /System/Library/LaunchDaemons/ /System/Library/LaunchAgents/ | grep adobe'
+end
+
 namespace :weekly do
   require 'open-uri'
   require 'nokogiri'
