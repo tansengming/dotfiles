@@ -46,6 +46,7 @@ export LANG="en_US.UTF-8"
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
 function locate() { mdfind "kMDItemDisplayName == '$@'wc"; }
+function dodone() { terminal-notifier -message 'Done!' }
 
 # PATH
 export PATH=$HOME/.rbenv/shims                                          # rbenv on top
