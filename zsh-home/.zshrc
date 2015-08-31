@@ -47,6 +47,7 @@ export LANG="en_US.UTF-8"
 
 function locate() { mdfind "kMDItemDisplayName == '$@'wc"; }
 function dodone() { terminal-notifier -message 'Done!' }
+function clip() { [ -t 0 ] && pbpaste || pbcopy }
 
 # PATH
 export PATH=$HOME/.rbenv/shims                                          # rbenv on top
