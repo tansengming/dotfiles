@@ -1,2 +1,1 @@
 new_session -n foreman -c ~/dev 'foreman start -f Procfile.dev'
-new_window -n zeus -c ~/dev 'zeus start'
