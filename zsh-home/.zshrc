@@ -33,7 +33,6 @@ alias new='gls -lht | head'
 alias ag="noglob ag --smart-case --context"
 alias ag0="noglob ag -C0 --smart-case"
 alias lg='ls | grep'
-alias f='mdfind -onlyin . -name'
 alias ql='qlmanage -p'
 # Suffixes
 alias -s log='most'
@@ -46,6 +45,7 @@ export LANG="en_US.UTF-8"
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
 function locate() { mdfind "kMDItemDisplayName == '$@'wc"; }
+function f()      { mdfind -onlyin . -name $@ | sed "s@$PWD/@@" }
 function dodone() { terminal-notifier -message 'Done!' }
 function clip() { [ -t 0 ] && pbpaste || pbcopy }
 
