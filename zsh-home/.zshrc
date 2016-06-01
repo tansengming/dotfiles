@@ -22,7 +22,6 @@ alias grep='grep -i'
 # Rails
 alias be='bundle exec'
 alias sp='spring'
-alias ze='zeus'
 # Dev
 alias mkdev='grm -f ~/dev && ln -vs $PWD ~/dev'
 alias dev='cd ~/dev(:A)'
