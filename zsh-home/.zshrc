@@ -21,7 +21,6 @@ alias mkdir='gmkdir -v'
 alias grep='grep -i'
 # Rails
 alias be='bundle exec'
-alias sp='spring'
 # Dev
 alias mkdev='grm -f ~/dev && ln -vs $PWD ~/dev'
 alias dev='cd ~/dev(:A)'
@@ -45,8 +44,17 @@ export LANG="en_US.UTF-8"
 
 function locate() { mdfind "kMDItemDisplayName == '$@'wc"; }
 function f()      { mdfind -onlyin . -name $@ | sed "s@$PWD/@@" }
-function dodone() { terminal-notifier -message 'Done!' }
 function clip()   { [ -t 0 ] && pbpaste || pbcopy }
+function sp() {
+  case "$1" in
+      rspec)
+          noti spring $1 $2
+          ;;
+      *)
+          spring $1 $2
+          ;;
+  esac
+}
 
 # PATH
 export PATH=$HOME/.rbenv/shims                                          # rbenv on top
