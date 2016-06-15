@@ -48,10 +48,10 @@ function clip()   { [ -t 0 ] && pbpaste || pbcopy }
 function sp() {
   case "$1" in
       rspec)
-          noti spring $1 $2
+          spring $@; noti
           ;;
       *)
-          spring $1 $2
+          spring $@
           ;;
   esac
 }
