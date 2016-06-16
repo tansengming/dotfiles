@@ -32,6 +32,7 @@ alias ag="noglob ag --smart-case --context"
 alias ag0="noglob ag -C0 --smart-case"
 alias lg='ls | grep'
 alias ql='qlmanage -p'
+alias get_and_unzip='unzip =( wget -qO- $1 )'
 # Suffixes
 alias -s log='most'
 alias -s png='qlmanage -p'
