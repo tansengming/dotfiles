@@ -32,7 +32,6 @@ alias ag="noglob ag --smart-case --context"
 alias ag0="noglob ag -C0 --smart-case"
 alias lg='ls | grep'
 alias ql='qlmanage -p'
-alias get_and_unzip='unzip =( wget -qO- $1 )'
 # Suffixes
 alias -s log='most'
 alias -s png='qlmanage -p'
@@ -46,6 +45,7 @@ export LANG="en_US.UTF-8"
 function locate() { mdfind "kMDItemDisplayName == '$@'wc"; }
 function f()      { mdfind -onlyin . -name $@ | sed "s@$PWD/@@" }
 function clip()   { [ -t 0 ] && pbpaste || pbcopy }
+function get_and_unzip() { unzip =( wget -qO- $1 ) }
 function sp() {
   case "$1" in
       rspec)
