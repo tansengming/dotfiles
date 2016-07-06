@@ -11,19 +11,12 @@ task :adobe_launchd do
 end
 
 namespace :weekly do
-  require 'open-uri'
-  require 'nokogiri'
-  task :trailers do
-    RSS = 'http://gdata.youtube.com/feeds/base/users/FilmsActuTrailers/uploads?alt=rss&v=2&orderby=published&client=ytapi-youtube-profile'
-    doc = Nokogiri::XML(open(RSS))
-    links = doc.css('rss item link').map(&:inner_html)
-
-    TRAILER_PATH = Pathname.new(Dir.home).join 'downloads', 'trailers'
-    TRAILER_PATH.mkdir unless TRAILER_PATH.exist?
-    links_params = links.map{|l| "'#{l}'"}.join(' ')
-
-    cd (TRAILER_PATH) do
-      sh "youtube-dl -lic --format 38/37/22/35/34/18/6/5/17/13 #{links_params}"
+  task :update_evercondo do
+    paths = Pathname.glob("#{ENV['HOME']}/Projects/ruby/everapps/*")
+    paths.each do |path|
+      cd path do
+        system 'git up'
+      end
     end
   end
 
