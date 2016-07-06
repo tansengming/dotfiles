@@ -99,13 +99,3 @@ namespace :download do
     end
   end
 end
-
-namespace :ruby do
-  task :update do
-    # $ cd ~/.rbenv
-    # $ git pull
-    # remove /opt/local/bin from path
-    # rbenv install 1.9.3-p12 # latest ruby ver
-    # rbenv rehash
-  end
-end
