@@ -4,7 +4,7 @@ Bundler.require(:default)
 
 include FileUtils::Verbose
 
-task :weekly => [:'weekly:brew']
+task :weekly => [:'weekly:brew', :'weekly:update_evercondo']
 
 task :adobe_launchd do
   system 'ls -l /Library/LaunchAgents ~/Library/LaunchAgents /Library/LaunchDaemons /System/Library/LaunchDaemons/ /System/Library/LaunchAgents/ | grep adobe'
