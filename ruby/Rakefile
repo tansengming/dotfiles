@@ -37,13 +37,6 @@ task :js do
   end
 end
 
-desc 'Picks a random picture from the iPhoto Library'
-task :random_picture do
-  dir = '/Users/tansengming/Pictures/iPhoto Public Library/Originals'
-  file = Dir.glob(dir + '/**/*.jp*').shuffle.first
-  sh "open #{file.gsub(' ', '\ ')}"
-end
-
 task :download => [:'download:link', :'download:all', :'download:fix_filenames']
 
 Cocaine::CommandLine.logger = Logger.new(STDOUT)
