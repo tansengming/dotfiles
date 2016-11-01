@@ -4,7 +4,7 @@ Bundler.require(:default)
 
 include FileUtils::Verbose
 
-task :weekly => [:'weekly:brew', :'weekly:update_evercondo']
+task :weekly => [:'weekly:brew', :'weekly:update_evercondo', :'weekly:mas']
 
 task :adobe_launchd do
   system 'ls -l /Library/LaunchAgents ~/Library/LaunchAgents /Library/LaunchDaemons /System/Library/LaunchDaemons/ /System/Library/LaunchAgents/ | grep adobe'
@@ -26,6 +26,12 @@ namespace :weekly do
       sh 'brew upgrade'
       sh 'brew cleanup'
     end
+  end
+
+  # run last because mas upgrade might crash
+  task :mas do
+    sh 'softwareupdate -l'
+    sh 'mas upgrade'
   end
 end
 
