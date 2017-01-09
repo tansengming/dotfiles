@@ -44,7 +44,7 @@ task :js do
   end
 end
 
-task :download => [:'download:link', :'download:all', :'download:fix_filenames']
+task :download => [:'download:link', :'download:all']
 
 Cocaine::CommandLine.logger = Logger.new(STDOUT)
 
@@ -89,13 +89,5 @@ namespace :download do
       listfile.delete
     end
     sh 'open ~/Downloads'
-  end
-
-  task :fix_filenames do
-    cd DownloadPath do
-      Pathname.glob('makeplaylist.*').reject{|p| p.to_s[/mp4$/]}.each do |f|
-        f.rename(f.to_s + '.mp4')
-      end
-    end
   end
 end
