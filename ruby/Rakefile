@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'pathname'
 Bundler.require(:default)
+Dotenv.load
 
 include FileUtils::Verbose
 
@@ -72,7 +73,11 @@ namespace :download do
             sh "youtube-dl -lic --format 38/37/22/35/34/18/6/5/17/13 '#{url}'"
           elsif url[/(put)\.io/]
             filename = url[/\w+\.zip/]
-            Cocaine::CommandLine.new("wget" , "--http-user=sengming --http-password='RWIGQMKEAZ' -O '#{filename}' '#{url}'").run
+            cmd      = %Q{wget --http-user=#{ENV['PUTIO_USER']} --http-password='#{ENV['PUTIO_PASSWORD']}' -O '#{filename}' '#{url}'}
+
+            system cmd
+            # Cocain stopped displaying output ...
+            # Cocaine::CommandLine.new("wget" , "--http-user=sengming --http-password='RWIGQMKEAZ' -O '#{filename}' '#{url}'").run
             Cocaine::CommandLine.new('unzip', filename).run
             Cocaine::CommandLine.new('rm'   , filename).run
           else

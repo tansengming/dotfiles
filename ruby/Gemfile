@@ -1,9 +1,11 @@
 source 'https://rubygems.org'
 
 gem 'cocaine'
+gem 'dotenv'
 gem 'git-up'
 gem 'logger'
 gem 'nokogiri'
+gem 'posix-spawn' # better for cocaine
 gem 'rake'
 
 # adds pry and fixes problem with arrow keys on IRB
