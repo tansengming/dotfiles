@@ -77,7 +77,7 @@ namespace :download do
 
             system cmd
             # Cocain stopped displaying output ...
-            # Cocaine::CommandLine.new("wget" , "--http-user=sengming --http-password='RWIGQMKEAZ' -O '#{filename}' '#{url}'").run
+            # Cocaine::CommandLine.new("wget" , "--http-user=#{ENV['PUTIO_USER']} --http-password=#{ENV['PUTIO_PASSWORD']} -O '#{filename}' '#{url}'").run
             Cocaine::CommandLine.new('unzip', filename).run
             Cocaine::CommandLine.new('rm'   , filename).run
           else
