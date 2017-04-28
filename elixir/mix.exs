@@ -6,10 +6,10 @@ defmodule MyApp.Mixfile do
   end
 
   defp aliases do
-    [hello: &hello/1]
+    [adobe_launchd: &adobe_launchd/1]
   end
 
-  defp hello(_) do
-    Mix.shell.info "hello"
+  defp adobe_launchd(_) do
+    Mix.shell.cmd "ls -l /Library/LaunchAgents ~/Library/LaunchAgents /Library/LaunchDaemons /System/Library/LaunchDaemons/ /System/Library/LaunchAgents/ | grep adobe"
   end
 end
