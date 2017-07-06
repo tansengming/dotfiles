@@ -10,4 +10,3 @@ gem 'rake'
 
 # adds pry and fixes problem with arrow keys on IRB
 gem 'pry'
-gem 'rb-readline'
