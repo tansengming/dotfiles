@@ -5,7 +5,7 @@ Dotenv.load
 
 include FileUtils::Verbose
 
-task :weekly => [:'weekly:brew', :'weekly:update_evercondo', :'weekly:mas']
+task weekly: [:'weekly:brew', :'weekly:update_evercondo', :'weekly:mas']
 
 task :adobe_launchd do
   system 'ls -l /Library/LaunchAgents ~/Library/LaunchAgents /Library/LaunchDaemons /System/Library/LaunchDaemons/ /System/Library/LaunchAgents/ | grep adobe'
