@@ -1,15 +1,10 @@
 require 'rubygems'
 require 'pathname'
 Bundler.require(:default)
-Dotenv.load
 
 include FileUtils::Verbose
 
 task weekly: [:'weekly:brew', :'weekly:update_evercondo', :'weekly:mas']
-
-task :adobe_launchd do
-  system 'ls -l /Library/LaunchAgents ~/Library/LaunchAgents /Library/LaunchDaemons /System/Library/LaunchDaemons/ /System/Library/LaunchAgents/ | grep adobe'
-end
 
 namespace :weekly do
   task :update_evercondo do
