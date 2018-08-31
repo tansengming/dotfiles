@@ -10,9 +10,6 @@
   h = log --pretty=format:'%Cblue%h %Cgreen %ar%Creset %s'
   l = log --decorate --oneline
   current-branch = rev-parse --symbolic-full-name --abbrev-ref HEAD
-  p = !git push origin HEAD:$(git current-branch)
-  follow = !git branch -u origin/$(git current-branch)
-  del = !export GIT_LAST_BRANCH=$(git current-branch) && (git checkout develop || git checkout gh-pages || git checkout master) && git up && git branch -d $GIT_LAST_BRANCH
   root = !echo "$(git rev-parse --show-toplevel)"
 [color]
   ui = auto
