@@ -1,6 +1,11 @@
 require 'rubygems'
 require 'pathname'
-Bundler.require(:default)
+require 'bundler/inline'
+
+gemfile do
+  source 'https://rubygems.org'
+  gem 'git-up'
+end
 
 include FileUtils::Verbose
 
