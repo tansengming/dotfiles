@@ -3,13 +3,10 @@
   email = tansengming@gmail.com
 [alias]
   b = branch
-  c = commit .
   co = checkout
   stat = status
-  s = status
   h = log --pretty=format:'%Cblue%h %Cgreen %ar%Creset %s'
   l = log --decorate --oneline
-  current-branch = rev-parse --symbolic-full-name --abbrev-ref HEAD
   root = !echo "$(git rev-parse --show-toplevel)"
 [color]
   ui = auto
