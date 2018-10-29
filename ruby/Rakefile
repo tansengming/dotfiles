@@ -9,7 +9,13 @@ end
 
 include FileUtils::Verbose
 
-task weekly: [:'weekly:brew', :'weekly:update_evercondo', :'weekly:mas']
+desc 'https://apple.stackexchange.com/questions/156863/bluetooth-issues-after-sleep-in-os-x-yosemite-10-10'
+task :reset_bluetooth do
+  system 'sudo kextunload -b com.apple.iokit.BroadcomBluetoothHostControllerUSBTransport'
+  system 'sudo kextload -b com.apple.iokit.BroadcomBluetoothHostControllerUSBTransport'
+end
+
+task weekly: [:'weekly:brew', :'weekly:mas']
 
 namespace :weekly do
   task :update_evercondo do
