@@ -57,6 +57,17 @@ function sp() {
   esac
 }
 
+function be() {
+  case "$1" in
+      rspec)
+          bundle exec $@; noti
+          ;;
+      *)
+          bundle exec $@
+          ;;
+  esac
+}
+
 # PATH
 export PATH=$HOME/.rbenv/shims                                          # rbenv on top
 export PATH=$PATH:$HOME/.nodebrew/current/bin                           # nodebrew
