@@ -9,7 +9,7 @@
 		"meh"
 	],
 	"auto_complete": true,
-	"color_scheme": "Packages/Github Color Theme/GitHub.tmTheme",
+	"color_scheme": "Packages/Inspired GitHub Color Scheme/InspiredGitHub.tmTheme",
 	"file_exclude_patterns":
 	[
 		"*.pyc",
