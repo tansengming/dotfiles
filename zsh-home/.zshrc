@@ -19,19 +19,12 @@ alias cp='/usr/local/bin/gcp -vi'
 alias ln='gln -v'
 alias mkdir='gmkdir -v'
 alias grep='grep -i'
-# Rails
-alias be='bundle exec'
 # Dev
 alias mkdev='grm -f ~/dev && ln -vs $PWD ~/dev'
 alias dev='cd ~/dev(:A)'
 # etc
-alias x='exit'
 alias desk='cd ~/Desktop'
-alias new='gls -lht | head'
-alias ag="noglob ag --smart-case --context"
 alias ag0="noglob ag -C0 --smart-case"
-alias lg='ls | grep'
-alias ql='qlmanage -p'
 # Suffixes
 alias -s log='most'
 alias -s png='qlmanage -p'
@@ -49,10 +42,10 @@ function get_and_unzip() { unzip =( wget -qO- $1 ) }
 function sp() {
   case "$1" in
       rspec)
-          spring $@; noti
+          bundle exec spring $@; noti
           ;;
       *)
-          spring $@
+          bundle exec spring $@
           ;;
   esac
 }
@@ -79,3 +72,9 @@ export EDITOR="$HOME/bin/subl -w"
 export VISUAL="$HOME/bin/subl -w"
 export GOPATH=$HOME/Projects/go
 export HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS='' # makes up/down search case sensitive
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh

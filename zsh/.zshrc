@@ -5,8 +5,6 @@ fi
 setopt HIST_FIND_NO_DUPS
 setopt histignorealldups
 
-alias x='exit'
-alias desk='cd ~/Desktop'
 alias rm='grm -v'
 alias rmdir='grmdir -v'
 alias cp='cp -vi'
@@ -16,15 +14,8 @@ alias mkdev='rm -f ~/dev && ln -vs $PWD ~/dev'
 alias mv='gmv -vi'
 alias be='bundle exec'
 alias grep='grep -i'
-alias new='ls -lht | head'
-alias heroku=’nocorrect heroku’
-alias git='nocorrect /usr/local/bin/git'
-alias ag="nocorrect noglob ag --smart-case --context"
 alias ag0='ag -C0'
-alias lg='ls | grep'
-alias ze='zeus'
 alias f='mdfind -onlyin . -name'
-alias sp='spring'
 alias ql='qlmanage -p'
 
 export EDITOR=~/bin/subl
