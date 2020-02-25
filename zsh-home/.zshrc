@@ -39,17 +39,6 @@ function locate() { mdfind "kMDItemDisplayName == '$@'wc"; }
 function f()      { mdfind -onlyin . -name $@ | sed "s@$PWD/@@" }
 function clip()   { [ -t 0 ] && pbpaste || pbcopy }
 function get_and_unzip() { unzip =( wget -qO- $1 ) }
-function sp() {
-  case "$1" in
-      rspec)
-          bundle exec spring $@; noti
-          ;;
-      *)
-          bundle exec spring $@
-          ;;
-  esac
-}
-
 function be() {
   case "$1" in
       rspec)
