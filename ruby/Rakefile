@@ -22,7 +22,6 @@ namespace :weekly do
     Bundler.with_clean_env do
       sh 'brew update'
       sh 'brew upgrade'
-      sh 'brew cleanup'
     end
   end
 
