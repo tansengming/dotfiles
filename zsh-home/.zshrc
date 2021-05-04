@@ -49,6 +49,17 @@ function be() {
           ;;
   esac
 }
+function sp() {
+  case "$1" in
+      rspec)
+          bundle exec spring $@; noti
+          ;;
+      *)
+          bundle exec spring $@
+          ;;
+  esac
+}
+
 # https://devcenter.heroku.com/articles/one-off-dynos
 function he-prods() {
   heroku run -a shopee-channel -- SENTRY_DSN=false SHOPEE_DEBUG=true NEW_RELIC_AGENT_ENABLED=false APPSIGNAL_ACTIVE=false $@
