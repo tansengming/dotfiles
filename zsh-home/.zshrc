@@ -49,6 +49,13 @@ function be() {
           ;;
   esac
 }
+# https://devcenter.heroku.com/articles/one-off-dynos
+function he-prods() {
+  heroku run -a shopee-channel -- SENTRY_DSN=false SHOPEE_DEBUG=true NEW_RELIC_AGENT_ENABLED=false APPSIGNAL_ACTIVE=false $@
+}
+function he-stages() {
+  heroku run -a shopee-channel-staging -- SENTRY_DSN=false SHOPEE_DEBUG=true NEW_RELIC_AGENT_ENABLED=false APPSIGNAL_ACTIVE=false $@
+}
 
 # PATH
 export PATH=$HOME/.rbenv/shims                                          # rbenv on top
