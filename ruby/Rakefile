@@ -29,7 +29,7 @@ namespace :weekly do
   # run last because mas upgrade might crash
   task :mas do
     sh 'softwareupdate -l'
-    sh 'mas upgrade'
+    # sh 'mas upgrade' # skipping it was updating old stuff
   end
 end
 
