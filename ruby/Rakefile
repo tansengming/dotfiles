@@ -18,15 +18,6 @@ end
 task weekly: [:'weekly:brew', :'weekly:mas']
 
 namespace :weekly do
-  task :update_evercondo do
-    paths = Pathname.glob("#{ENV['HOME']}/Projects/ruby/everapps/*")
-    paths.each do |path|
-      cd path do
-        system 'git up'
-      end
-    end
-  end
-
   task :brew do
     Bundler.with_clean_env do
       sh 'brew update'
