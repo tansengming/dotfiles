@@ -15,7 +15,7 @@ task :reset_bluetooth do
   system 'sudo kextload -b com.apple.iokit.BroadcomBluetoothHostControllerUSBTransport'
 end
 
-task weekly: [:'weekly:brew', :'weekly:mas']
+task weekly: %i[weekly:brew weekly:mas]
 
 namespace :weekly do
   task :brew do
